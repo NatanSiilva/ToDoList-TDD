@@ -3,9 +3,10 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from django.test import LiveServerTestCase
 
 
-class NewVisitorTest(unittest.TestCase):
+class NewVisitorTest(LiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Chrome()
 
@@ -21,7 +22,7 @@ class NewVisitorTest(unittest.TestCase):
     def test_can_start_a_todo_list(self):
         # Edith ouviu falar de um novo aplicativo de tarefas on-line legal.
         # Ela vai verificar a página inicial
-        self.browser.get("http://localhost:8000")
+        self.browser.get(self.live_server_url)
 
         # Ela percebe que o título da página e o cabeçalho mencionam listas de tarefas
         self.assertIn("To-Do", self.browser.title)
