@@ -1,3 +1,4 @@
+import os
 import time
 import unittest
 from selenium import webdriver
@@ -7,12 +8,16 @@ from selenium.common.exceptions import WebDriverException
 from django.test import LiveServerTestCase
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
-MAX_WAIT = 5
+MAX_WAIT = 5 
 
 
 class NewVisitorTest(StaticLiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Chrome()
+        stage_server = os.environ.get("STAGING_SERVER")
+
+        if stage_server:
+            self.live_server_url = f"http://{stage_server}"
 
     def tearDown(self):
         self.browser.quit()
