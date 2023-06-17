@@ -1,0 +1,17 @@
+
+venv/bin/gunicorn superlists.wsgi:application 
+
+gunicorn --bind unix:/tmp/superlists-staging.natandev.com.br.conf.socket --access-logfile /home/deploy/sites/superlists-staging.natandev.com.br.conf/access.log --error-logfile /home/deploy/sites/superlists-staging.natandev.com.br.conf/error.log superlists.wsgi:application
+
+sudo systemctl daemon-reload
+sudo systemctl enable superlists-staging.natandev.com.br.conf
+sudo systemctl start superlists-staging.natandev.com.br
+
+sudo journalctl -u superlists-staging.natandev.com.br
+
+sudo systemctl daemon-reload
+sudo systemctl enable superlists-staging.natandev.com.br
+sudo systemctl start superlists-staging.natandev.com.br
+
+
+gunicorn-superlists-staging.natandev.com.br.conf.service

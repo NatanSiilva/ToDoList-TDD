@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn server for superlists-staging.natandev.com.br
+
+[Service]
+Restart=on-failure
+User=deploy
+WorkingDirectory=/home/deploy/sites/superlists-staging.natandev.com.br.conf/ToDoList-TDD
+ExecStart=/home/deploy/sites/superlists-staging.natandev.com.br.conf/ToDoList-TDD/venv/bin/gunicorn \
+    --bind unix:/tmp/superlists-staging.natandev.com.br.conf.socket \
+    superlists.wsgi:application
+
+[Install]
+WantedBy=multi-user.target

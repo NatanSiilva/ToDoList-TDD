@@ -23,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xpw5$+(rye(ddn-zz-=f^*7anadr&qv+3g^jdf(4093o2noj(7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+TEMPLATES_DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['superlists-staging.natandev.com.br']
 
 
 # Application definition
