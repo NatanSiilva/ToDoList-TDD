@@ -14,4 +14,4 @@ sudo systemctl enable superlists-staging.natandev.com.br
 sudo systemctl start superlists-staging.natandev.com.br
 
 
-gunicorn-superlists-staging.natandev.com.br.conf.service
+gunicorn-superlists-staging.natandev.com.br.service
