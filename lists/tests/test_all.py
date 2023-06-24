@@ -14,6 +14,7 @@ class HomePageTest(TestCase):
 
 class ListAndItemModelsTest(TestCase):
     def test_saving_and_retrieving_items(self):
+        # sourcery skip: extract-duplicate-method
         list_ = List()
         list_.save()
 
@@ -54,6 +55,7 @@ class ListViewTest(TestCase):
         self.assertEqual(response.context["list"], correct_list)
 
     def test_displays_only_items_for_that_list(self):
+        # sourcery skip: extract-duplicate-method
         correct_list = List.objects.create()
         Item.objects.create(text="itemey 1", list=correct_list)
         Item.objects.create(text="itemey 2", list=correct_list)
