@@ -15,3 +15,6 @@ sudo systemctl start superlists-staging.natandev.com.br
 
 
 gunicorn-superlists-staging.natandev.com.br.service
+
+
+
